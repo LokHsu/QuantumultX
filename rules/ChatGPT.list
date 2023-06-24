@@ -1,20 +1,20 @@
 # > OpenAI
-DOMAIN-SUFFIX,openai.com
-DOMAIN-SUFFIX,pay.openai.com
-DOMAIN-SUFFIX,chat.openai.com
-DOMAIN-SUFFIX,challenges.cloudflare.com
-DOMAIN-SUFFIX,auth0.openai.com
-DOMAIN-SUFFIX,platform.openai.com
+DOMAIN-SUFFIX,openai.com,ChatGPT
+DOMAIN-SUFFIX,pay.openai.com,ChatGPT
+DOMAIN-SUFFIX,chat.openai.com,ChatGPT
+DOMAIN-SUFFIX,challenges.cloudflare.com,ChatGPT
+DOMAIN-SUFFIX,auth0.openai.com,ChatGPT
+DOMAIN-SUFFIX,platform.openai.com,ChatGPT
 
 # > ai.com
-DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,ai.com,ChatGPT
 
 # > stripe.com
-DOMAIN-SUFFIX,invoice.stripe.com
-DOMAIN-SUFFIX,stripe.com
+DOMAIN-SUFFIX,invoice.stripe.com,ChatGPT
+DOMAIN-SUFFIX,stripe.com,ChatGPT
 
 # > poe.com
-DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,poe.com,ChatGPT
 
 # > bard.google.com
-DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,bard.google.com,ChatGPT

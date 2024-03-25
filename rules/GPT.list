@@ -1,0 +1,24 @@
+# > OpenAI
+DOMAIN-SUFFIX,openai.com,GPT
+DOMAIN-SUFFIX,pay.openai.com,GPT
+DOMAIN-SUFFIX,chat.openai.com,GPT
+DOMAIN-SUFFIX,challenges.cloudflare.com,GPT
+DOMAIN-SUFFIX,auth0.openai.com,GPT
+DOMAIN-SUFFIX,platform.openai.com,GPT
+
+# > ai.com
+DOMAIN-SUFFIX,ai.com,GPT
+
+# > stripe.com
+DOMAIN-SUFFIX,invoice.stripe.com,GPT
+DOMAIN-SUFFIX,stripe.com,GPT
+
+# > poe.com
+DOMAIN-SUFFIX,poe.com,GPT
+
+# > Gemini
+DOMAIN-SUFFIX,gemini.google.com,GPT
+DOMAIN-SUFFIX,generativelanguage.googleapis.com,GPT
+
+# > Claude
+DOMAIN-SUFFIX,claude.ai,GPT

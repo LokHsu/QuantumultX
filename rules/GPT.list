@@ -1,4 +1,5 @@
 # > OpenAI
+DOMAIN-SUFFIX,chatgpt.com,GPT
 DOMAIN-SUFFIX,openai.com,GPT
 DOMAIN-SUFFIX,pay.openai.com,GPT
 DOMAIN-SUFFIX,chat.openai.com,GPT

@@ -1,11 +1,8 @@
 # > OpenAI
 DOMAIN-SUFFIX,chatgpt.com,GPT
 DOMAIN-SUFFIX,openai.com,GPT
-DOMAIN-SUFFIX,pay.openai.com,GPT
-DOMAIN-SUFFIX,chat.openai.com,GPT
+DOMAIN-SUFFIX,oaistatic.com,GPT
 DOMAIN-SUFFIX,challenges.cloudflare.com,GPT
-DOMAIN-SUFFIX,auth0.openai.com,GPT
-DOMAIN-SUFFIX,platform.openai.com,GPT
 
 # > ai.com
 DOMAIN-SUFFIX,ai.com,GPT

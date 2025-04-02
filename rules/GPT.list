@@ -2,6 +2,7 @@
 DOMAIN-SUFFIX,chatgpt.com,GPT
 DOMAIN-SUFFIX,openai.com,GPT
 DOMAIN-SUFFIX,oaistatic.com,GPT
+DOMAIN-SUFFIX,oaiusercontent.com,GPT
 DOMAIN-SUFFIX,challenges.cloudflare.com,GPT
 
 # > ai.com

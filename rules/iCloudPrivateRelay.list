@@ -1,0 +1,9 @@
+# > 解除 iCloud Private Relay 地区限制（仅限软路由配置）
+# 只有 Safari 和非 https 流量会走 iCloud 私密转送
+
+DOMAIN,mask-api.fe.apple-dns.net,iCloudPrivateRelay
+DOMAIN,mask-api.icloud.com,iCloudPrivateRelay
+DOMAIN,mask-t.apple-dns.net,iCloudPrivateRelay
+DOMAIN,mask.apple-dns.net,iCloudPrivateRelay
+DOMAIN,mask-h2.icloud.com,iCloudPrivateRelay
+DOMAIN,mask.icloud.com,iCloudPrivateRelay

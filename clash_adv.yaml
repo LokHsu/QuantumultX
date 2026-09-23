@@ -1,0 +1,42 @@
+#  ------------------------------------------------------------------
+#  Mihomo / Clash Meta 进阶定制配置文件 (LokHsu)
+#  ------------------------------------------------------------------
+#  【核心架构与功能】  
+#  1. 基础网络：开启 TUN 模式（System 栈）、严格路由、以太网自动路由与 DNS 劫持，默认绑定 7897 混合端口。
+#  2. 智能 DNS：采用 ARC 缓存算法与 Fake-IP 增强模式，整合本地规则直连过滤与多上游并发加密解析。  
+#  3. 节点分流：基于正则自动识别地区（美/日/港/台），提供 Fallback 顺位故障切换与动态延迟检测。  
+#  4. 规则路由：精确区分 AI 平台（OpenAI / Claude / Gemini 独立分流）、主流流媒体、谷歌/苹果/微软服务、Adobe 破解与广告拦截。 
+#  ------------------------------------------------------------------
+
+custom:
+  enable_rule_generator: true
+  overwrite_original_rules: true
+  clash_rule_base: "https://raw.githubusercontent.com/LokHsu/QuantumultX/master/base/clash_base.yaml"
+
+  rulesets:
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list", group: "🛑 全球拦截"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list", group: "🍃 应用净化"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list", group: "🆎 AdBlock"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list", group: "🆎 AdBlock"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EasyPrivacy/EasyPrivacy.list", group: "🆎 AdBlock"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/LokHsu/QuantumultX/master/rules/GPT.list", group: "🤖 AI Platforms"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list", group: "🤖 AI Platforms"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list", group: "📢 谷歌服务"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list", group: "🍎 苹果服务"}
+    - {ruleset: "clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list", group: "🚀 节点选择"}
+    # - {ruleset: "clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaIPs/ChinaIPs.list", group: "DIRECT"}
+    - {ruleset: "[]GEOIP,CN", group: "DIRECT"}
+    - {ruleset: "[]FINAL", group: "🐟 漏网之鱼"}
+
+  proxy_groups:
+    # - {name: "♻️ 故障切换", type: fallback, rule: [".*"], url: "http://www.gstatic.com/generate_204", interval: 60, timeout: 3000}
+    - {name: "♻️ 自动选择", type: url-test, rule: [".*"], url: "http://www.gstatic.com/generate_204", interval: 60, tolerance: 50}
+    - {name: "✈️ 国外节点", type: url-test, rule: ["(日本|Japan|美|US|United States|台湾|韩|KR|Korea|KOR)"], url: "http://www.gstatic.com/generate_204", interval: 60, tolerance: 50}
+    - {name: "🚀 节点选择", type: select, rule: ["[]♻️ 自动选择", "[]DIRECT", ".*"]}
+    - {name: "🍎 苹果服务", type: select, rule: ["[]🚀 节点选择", "[]DIRECT"]}
+    - {name: "📢 谷歌服务", type: select, rule: ["[]🚀 节点选择", "[]✈️ 国外节点", ".*"]}
+    - {name: "🤖 AI Platforms", type: select, rule: ["[]✈️ 国外节点", "[]🚀 节点选择", "(日本|Japan|美|US|United States|台湾|韩|KR|Korea|KOR)"]}
+    - {name: "🐟 漏网之鱼", type: select, rule: ["[]🚀 节点选择", "[]DIRECT", ".*"]}
+    - {name: "🛑 全球拦截", type: select, rule: ["[]REJECT", "[]DIRECT"]}
+    - {name: "🍃 应用净化", type: select, rule: ["[]REJECT", "[]DIRECT"]}
+    - {name: "🆎 AdBlock", type: select, rule: ["[]REJECT", "[]DIRECT"]}

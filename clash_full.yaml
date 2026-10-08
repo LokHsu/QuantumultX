@@ -1,11 +1,12 @@
 #  ------------------------------------------------------------------
-#  Mihomo / Clash Meta 进阶定制配置文件 (LokHsu)
+#  Mihomo / Clash Meta 独立完整配置 (LokHsu)
 #  ------------------------------------------------------------------
-#  【核心架构与功能】  
+#  【核心架构与功能】
 #  1. 基础网络：开启 TUN 模式（System 栈）、严格路由、以太网自动路由与 DNS 劫持，默认绑定 7897 混合端口。
-#  2. 智能 DNS：采用 ARC 缓存算法与 Fake-IP 增强模式，整合本地规则直连过滤与多上游并发加密解析。  
-#  3. 节点分流：基于正则自动识别地区（美/日/港/台），提供 Fallback 顺位故障切换与动态延迟检测。  
-#  4. 规则路由：精确区分 AI 平台（OpenAI / Claude / Gemini 独立分流）、主流流媒体、谷歌/苹果/微软服务、Adobe 破解与广告拦截。 
+#  2. 智能 DNS：采用 ARC 缓存算法与 Fake-IP 增强模式，按规则分流解析，国内外 DoH 分离并预置静态 hosts 与 NTP。
+#  3. 节点分流：基于正则自动筛选日/美/新/韩节点，提供 url-test 动态测速与自动选择。
+#  4. 规则路由：精确区分 AI 平台（通用 AI + OpenAI）、谷歌与苹果服务、Global 出海、国内直连与广告拦截。
+#  注：proxies 留空，需自行填入节点或订阅。
 #  ------------------------------------------------------------------
 
 # --- 锚点定义 ---
@@ -141,7 +142,7 @@ rule-providers:
     path: ./ruleset/Google.list
   GPT:
     <<: *RuleSet
-    url: https://raw.githubusercontent.com/LokHsu/QuantumultX/master/rules/GPT.list
+    url: https://raw.githubusercontent.com/LokHsu/Rule4Hsu/master/rules/GPT.list
     path: ./ruleset/GPT.list
   OpenAI:
     <<: *RuleSet
